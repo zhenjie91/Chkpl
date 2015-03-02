@@ -1,0 +1,17 @@
+/* 
+    Document   : todolist
+    Created on : Mar 2, 2015, 9:16:44 AM
+    Author     : Zhen Jie
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.todoBox {
+  position: relative;
+  padding: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+  background-color: #eff0f2;
+  border-radius: 5px;
+  }
+

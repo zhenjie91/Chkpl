@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>  
 <%@include file="protect/engProtect.jsp" %>
+<%
+    String successmsg = request.getParameter("successmsg");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,18 +26,29 @@
 
         <div class="container">
             <div class="row">
-                <center>
-                <div class="col-xs-3">
-                    <div class="tile">
-                        <img src="img/icons/svg/clipboard.svg" alt="Infinity-Loop" class="tile-image">
-                        <h3 class="tile-title">Keep Track of My Lists</h3>
-                        <p>View the lists that are active for your usage in checking the equipments</p>
-                        <a class="btn btn-primary btn-large btn-block" href="mylistEng.jsp">View All Lists</a>
-                    </div>
+                <%
+                    if (successmsg != null) {
+                %>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    <a href="#" class="alert-link">Success! Well done its submitted.</a>
                 </div>
+                <%            }
+                %>
+                <center>
+                    <div class="col-xs-3">
+                        <div class="tile">
+                            <img src="img/icons/svg/clipboard.svg" alt="Infinity-Loop" class="tile-image">
+                            <h3 class="tile-title">Keep Track of My Lists</h3>
+                            <p>View the lists that are active for your usage in checking the equipments</p>
+                            <a class="btn btn-primary btn-large btn-block" href="mylistEng.jsp">View All Lists</a>
+                        </div>
+                    </div>
                 </center>
             </div> <!-- /tiles -->
         </div>
-        
+
     </body>
 </html>

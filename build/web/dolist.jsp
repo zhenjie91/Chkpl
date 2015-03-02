@@ -10,6 +10,8 @@
         <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
         <!-- Loading Flat UI -->
         <link href="dist/css/flat-ui.css" rel="stylesheet">
+        <!-- Loading Custom UI -->
+        <link href="dist/css/todolist.css" rel="stylesheet">
         <!-- Loading Favicon -->
         <link rel="shortcut icon" href="img/favicon1.ico">
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -26,83 +28,125 @@
 
         <div class="container">
             <div class="row">
-
-                <div class="todo">
-                    <h4>Checklist: <%=listTitle%> </h4>
-                    <ul>
-                        <li>
-                            <div class="todo-icon fui-list"></div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
+                <h4>Checklist: <%=listTitle%> </h4>
+                <div class="col-xs-5">
+                    <table style="height: 3px; width: 100%; background: #ebedef; border: 3px; border-radius: 5px; border-color: white"><tr><td id="tk1" style="background: #ebedef;">&emsp;</td><td id="tk2" style="background: #ebedef;">&emsp;</td><td id="tk3" style="background: #ebedef;">&emsp;</td><td id="tk4" style="background: #ebedef;">&emsp;</td><td id="tk5" style="background: #ebedef;">&emsp;</td><td id="tk6" style="background: #ebedef;">&emsp;</td></tr></table>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="todoBox">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h6>
                                     Check <strong>standard air flow</strong>
-                                </h4>
-                                H/M/L (m³/min)
-                            </div>
-                        </li>
-                        <li>
-                            <div class="todo-icon fui-list"></div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
+                                </h6>
+                            </td>
+                            <td>
+                                <div style="text-align: right">
+                                    <a class="btn btn-info" href="" data-toggle="modal" data-target="#myModal"><span class="fui-eye"></span> Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="todoBox">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h6>
                                     Check <strong>sound level pressure</strong>
-                                </h4>
-                                H/M/L dB•A
-                            </div>
-                        </li>
-                        <li>
-                            <div class="todo-icon fui-list"></div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
+                                </h6>
+                            </td>
+                            <td>
+                                <div style="text-align: right">
+                                    <a class="btn btn-info" href="" data-toggle="modal" data-target="#myModal2"><span class="fui-eye"></span> Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="todoBox">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h6>
                                     Check <strong>maximum current</strong> in <strong>heating conditions</strong> (A)
-                                </h4>
-                                
-                            </div>
-                        </li>
-                        <li>
-                            <div class="todo-icon fui-list"></div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
-                                    Check <strong>power factor </strong>in (%)
-                                </h4>
-                                As soon as possible
-                            </div>
-                        </li>
-                        <li>
-                            <div class="todo-icon fui-list"></div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
+                                </h6>
+                            </td>
+                            <td>
+                                <div style="text-align: right">
+                                    <a class="btn btn-info" href="" data-toggle="modal" data-target="#myModal3"><span class="fui-eye"></span> Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="todoBox">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h6>
                                     Check <strong>cooling condition</strong>
-                                </h4>
-                                Condition has to meet -14 - 46 degrees
-                            </div>
-                        </li>
-                        <li>
-                            <div class="todo-icon fui-list"></div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
+                                </h6>
+                            </td>
+                            <td>
+                                <div style="text-align: right">
+                                    <a class="btn btn-info" href="" data-toggle="modal" data-target="#myModal4"><span class="fui-eye"></span> Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="todoBox">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h6>
                                     Check <strong>Cooling</strong> and <strong>heating</strong> capacity
-                                </h4>
-                                Units of measurement is in kW
-                            </div>
-                        </li>
-                        <li>
-                            <div class="todo-icon fui-list"></div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
+                                </h6>
+                            </td>
+                            <td>
+                                <div style="text-align: right">
+                                    <a class="btn btn-info" href="" data-toggle="modal" data-target="#myModal5"><span class="fui-eye"></span> Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="todoBox">
+                    <table style="width: 100%">
+                        <tr>
+                            <td>
+                                <h6>
                                     Check speed of fan
-                                </h4>
-                                
-                            </div>
-                        </li>
-                    </ul>
-                </div><!-- /.todo -->
-            </div><!-- /.col-xs-4 -->
+                                </h6>
+                            </td>
+                            <td>
+                                <div style="text-align: right">
+                                    <a class="btn btn-info" href="" data-toggle="modal" data-target="#myModal6"><span class="fui-eye"></span> Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <%@include file="engDetailsModal/detailsModal.jsp" %>
+                <%@include file="engDetailsModal/detailsModal2.jsp" %>
+                <%@include file="engDetailsModal/detailsModal3.jsp" %>
+                <%@include file="engDetailsModal/detailsModal4.jsp" %>
+                <%@include file="engDetailsModal/detailsModal5.jsp" %>
+                <%@include file="engDetailsModal/detailsModal6.jsp" %>
+            </div>
             <div class="row">
                 <h4>Submission!</h2>
                     <p>
                         Do check that you have done your checks correctly, upon submission, you will no longer be able to edit any details in this particular list.
 
                     </p>
-                    <form name="submit_form" method="post" action="display.jsp">
+                    <form name="submit_form" method="post" action="display.jsp?successmsg=Your%20submission%20has%20been%20recorded!">
                         <label>Fill in the ISSN:</label>
                         <div class="form-inline">
                             <div class="form-inline form-group">
@@ -116,6 +160,7 @@
                     </form>
                     <textarea class="form-control login-field " rows="4" cols="50" name="comment" form="submit_form">Enter comment here...</textarea>
             </div>
+
         </div>
 
     </body>
