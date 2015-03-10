@@ -39,7 +39,7 @@
         <script type="text/javascript" src="/DataTables-1.10.5/media/js/jquery.dataTables.js"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin</title>
+        <title>Manage Admin</title>
     </head>
     <body style="padding-top: 70px;">
         <!-- Manager's Nav Bar -->

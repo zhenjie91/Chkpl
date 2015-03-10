@@ -20,7 +20,7 @@
         <script src="dist/js/flat-ui.min.js"></script>
         <script src="docs/assets/js/application.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Home</title>
+        <title>Do List</title>
     </head>
     <body style="padding-top: 70px;">
         <!-- Engineer's Nav Bar -->

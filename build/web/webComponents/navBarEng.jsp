@@ -10,7 +10,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-01">
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="mylistEng.jsp">MyList</a></li>
+                        <li><a href="mylistEng.jsp">ViewList</a></li>
                         <li><a href="about.jsp">About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
