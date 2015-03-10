@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>  
 <%@include file="protect/mgrProtect.jsp" %>
+<%
+    String successmsg = request.getParameter("successmsg");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,45 +25,70 @@
         <%@include file="webComponents/navBarMgr.jsp" %>
 
         <div class="container">
+
             <div class="row">
-                <div class="col-xs-3">
-                    <div class="tile">
-                        <img src="img/icons/svg/pencils.svg" alt="Compas" class="tile-image big-illustration">
-                        <h3 class="tile-title">Customized Aids</h3>
-                        <p>Customize checklists to aid in checks</p>
-                        <a class="btn btn-primary btn-large btn-block" href="createList.jsp">Create List</a>
-                    </div>
+                <div class="col-sm-12">
+                    <h4>Home</h4>
                 </div>
+            </div>
+            <%
+                if (successmsg != null) {
+            %>
 
-                <div class="col-xs-3">
-                    <div class="tile">
-                        <img src="img/icons/svg/clipboard.svg" alt="Infinity-Loop" class="tile-image">
-                        <h3 class="tile-title">Keep Track of My Lists</h3>
-                        <p>Find, manage and version-control all of your lists here</p>
-                        <a class="btn btn-primary btn-large btn-block" href="mylist.jsp">View All Lists</a>
-                    </div>
-                </div>
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    &times;
+                </button>
+                <a href="#" class="alert-link"> <%=successmsg %> </a>
+            </div>
 
-                <div class="col-xs-3">
-                    <div class="tile">
-                        <img src="img/icons/svg/retina.svg" alt="Pensils" class="tile-image">
-                        <h3 class="tile-title">View Lists by Equipment</h3>
-                        <p>Track submissions of checklists by the category</p>
-                        <a class="btn btn-primary btn-large btn-block" href="engineerlist.jsp">Engineers Listing</a>
-                    </div>
-                </div>
+            <%            }
+            %>
+            <div class="row">
+                <div class="col-sm-12">
 
-                <div class="col-xs-3">
-                    <div class="tile">
-                        <img src="img/icons/svg/book.svg" alt="Chat" class="tile-image">
-                        <h3 class="tile-title">Administration</h3>
-                        <p>Keep administrative tools within the click of a mouse</p>
-                        <a class="btn btn-primary btn-large btn-block" href="manageAdmin.jsp">Manage Admin</a>
+                    <div class="col-sm-3">
+                        <div class="tile">
+                            <img src="img/icons/svg/pencils.svg" alt="Compas" class="tile-image big-illustration">
+                            <h3 class="tile-title">Customized Aids</h3>
+                            <p>Build customized checklists to aid in checks</p>
+                            <a class="btn btn-primary btn-large btn-block" href="createList.jsp">Create List</a>
+                        </div>
                     </div>
 
-                </div>
-            </div> <!-- /tiles -->
+                    <div class="col-sm-3">
+                        <div class="tile">
+                            <img src="img/icons/svg/clipboard.svg" alt="Infinity-Loop" class="tile-image">
+                            <h3 class="tile-title">Keep Track of My Lists</h3>
+                            <p>Find, manage and version-control all of your lists here</p>
+                            <a class="btn btn-primary btn-large btn-block" href="mylist.jsp">View All Lists</a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="tile">
+                            <img src="img/icons/svg/retina.svg" alt="Pensils" class="tile-image">
+                            <h3 class="tile-title">View Lists by Equipment</h3>
+                            <p>Track submissions of checklists by equipments</p>
+                            <a class="btn btn-primary btn-large btn-block" href="engineerlist.jsp">Track Submissions</a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="tile">
+                            <img src="img/icons/svg/book.svg" alt="Chat" class="tile-image">
+                            <h3 class="tile-title">Administration</h3>
+                            <p>View, Add, and Manage equipments here.</p>
+                            <a class="btn btn-primary btn-large btn-block" href="manageAdmin.jsp">Manage Admin</a>
+                        </div>
+
+                    </div>
+
+                </div> <!-- /tiles -->
+
+            </div>
+
         </div>
-        
+
     </body>
 </html>

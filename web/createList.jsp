@@ -32,41 +32,45 @@
         <div class="container">
             <!-- Guidance and Instructions -->
             <div class="row">
-                <h4>Step 1: Create Checklist Title and allocate Equipment</h4>
-                <p>
-                    Welcome to the Create List Wizard! In this wizard, you will have to create the List name which will be visible in your engineer's MyList menu. Select the equipment that this list will be added to such that only the engineers in-charge of that equipment can see it. The default choice is Motherboard, so do make sure you have checked your option.<br>
-                    Once you are satisfied with your inputs, click on "Start Creating Tasks!".
-                </p>
+                <div class="col-sm-12">
+                    <h4>Step 1: Create Checklist Title and allocate Equipment</h4>
+                    <p>
+                        Welcome to the Create List Wizard! In this wizard, you will have to create the List name which will be visible in your engineer's MyList menu. Select the equipment that this list will be added to such that only the engineers in-charge of that equipment can see it. The default choice is Motherboard, so do make sure you have checked your option.<br>
+                        Once you are satisfied with your inputs, click on "Start Creating Tasks!".
+                    </p>
+                </div>
             </div>
             <!-- Create List Title, Select Type of Equipment -->
             <div class="row">
-                <form class="login-form" name="createList_form" method="post" action="addTask.jsp">
-                    <div class="share mrl">
-                        <ul>
-                            <li class="form-group">
-                                <label>Title</label>
-                                <input type="text" class="form-control login-field" value="" placeholder="Enter Title" name="ListTitle" required/>
-                            </li>
-                            <li class="form-group">
-                                <label>Equipment</label><br>
-                                <select class="form-control login-field select" data-toggle="select" name="ListType">
-                                    <option value="Motherboard" selected>Motherboard</option>
-                                    <option value="Cooling Unit">Cooling Unit</option>
-                                    <option value="Filter">Filter</option>
-                                    <option value="Fan">Fan</option>
-                                    <%
-                                        if (equip != null) {
-                                    %>
-                                    <option value="<%=equip%>"><%=equip%></option>
-                                    <%
-                                        }
-                                    %>
-                                </select>
-                            </li>
-                        </ul>
-                        <input class="btn btn-primary btn-block btn-large" type="submit" value="Start Creating Tasks!"/>
-                    </div> 
-                </form>
+                <div class="col-sm-12">
+                    <form class="login-form" name="createList_form" method="post" action="addTask.jsp">
+                        <div class="share mrl">
+                            <ul>
+                                <li class="form-group">
+                                    <label>Title</label>
+                                    <input type="text" class="form-control login-field" value="" placeholder="Enter Title" name="ListTitle" required/>
+                                </li>
+                                <li class="form-group">
+                                    <label>Equipment</label><br>
+                                    <select class="form-control login-field select" data-toggle="select" name="ListType">
+                                        <option value="Motherboard" selected>Motherboard</option>
+                                        <option value="Compressor">Compressor</option>
+                                        <option value="Filter">Filter</option>
+                                        <option value="Fan">Fan</option>
+                                        <%
+                                            if (equip != null) {
+                                        %>
+                                        <option value="<%=equip%>"><%=equip%></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                </li>
+                            </ul>
+                            <input class="btn btn-primary btn-block btn-large" type="submit" value="Start Creating Tasks!"/>
+                        </div> 
+                    </form>
+                </div>
             </div>
         </div> 
     </body>

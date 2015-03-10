@@ -28,8 +28,13 @@
             </div>
             <div class="modal-body">
                 <p>
-                    Units of measurements is in H/M/L (m³/min).
-                </p>
+                    <ul>
+                        <li>Units of measurements is in m³/min</li>
+                        <li>Run twice and take the average</li>
+                        <li>Range of readings from H/M/L </li>
+                        <li>If 'L', fail the task</li>
+                    </ul>
+                </p> 
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-right" 

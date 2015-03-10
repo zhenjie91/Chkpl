@@ -27,7 +27,13 @@
                 </h4>
             </div>
                 <div class="modal-body">
-                    
+                    <p>
+                    <ul>
+                        <li>Push unit to maximum voltage before overheating</li>
+                        <li>Monitor temperature increase as you increase the voltage</li>
+                        <li><strong>Convert measurements to &#37;</strong></li>
+                    </ul>
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-right" 

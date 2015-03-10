@@ -13,7 +13,7 @@
     }
     String listType = request.getParameter("ListType");
     if (listType != null) {
-        title = listType;
+        title = listType;        
     }
 %>
 <html>
@@ -47,17 +47,20 @@
 
         <div class="container">
             <div class="row">
+                <div class="col-sm-12">
                 <h4>Manage <%=title%></h4>
                 <p>
-                    Select the equipment to see the engineers assigned to it. To add a new equipment, select "Add New Equipment".
+                    Select the equipment to see the engineers assigned to it. <strong>To add a new equipment, select "Add New Equipment"</strong>.
                 </p>
+                </div>
             </div> <!-- /tiles -->
             <div class="row">
+                <div class="col-sm-12">
                 <form class="form-inline" name="createList_form" method="post" action="manageAdmin.jsp">
                     <div class="form-group">
-                        <select class="select-default" data-toggle="select" name="ListType" style="width: 300px">
+                        <select class="select-default" data-toggle="select" name="ListType" id="TypeChoose" style="width: 300px">
                             <option value="Motherboard" selected>Motherboard</option>
-                            <option value="CoolingUnit">Cooling Unit</option>
+                            <option value="Compressor">Compressor</option>
                             <option value="Filter">Filter</option>
                             <option value="Fan">Fan</option>
                             <%
@@ -69,7 +72,7 @@
                             %>
                         </select>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Go!"/>
+                    <input class="btn btn-primary" type="submit" value="Go!"/>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a class="btn btn-info" href="" data-toggle="modal" data-target="#myModal"><span class="fui-plus"></span> Add New Equipment</a>
                 </form>
                 <!-- Modal -->
@@ -105,10 +108,11 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal -->
                 </div> 
-
+            </div>
             </div>
             <% if (listType != null) {%>
             <div class="row">
+                <div class="col-sm-12">
                 <div class="table-responsive">
                     <table id="MList" class="table-striped" cellspacing="0" width="100%">
                         <thead>
@@ -123,7 +127,7 @@
                             <%if (listType.equals("Motherboard")) {%>
                             <tr>
                                 <td>1</td>
-                                <td>jayZee@ManElec.com</td>
+                                <td>bane@ManElec.com</td>
                                 <td>10-1-2015</td>
                                 <td><a class="btn-xs btn-danger" href="#"><span class="fui-cross-circle"></span> Remove</a></td>
                             </tr>
@@ -139,7 +143,7 @@
                                 <td>23-1-2015</td>
                                 <td><a class="btn-xs btn-danger" href="#"><span class="fui-cross-circle"></span> Remove</a></td>
                             </tr>
-                            <%} else if (listType.equals("CoolingUnit")) {%>
+                            <%} else if (listType.equals("Compressor")) {%>
                             <tr>
                                 <td>1</td>
                                 <td>jChou@ManElec.com</td>
@@ -150,6 +154,12 @@
                                 <td>2</td>
                                 <td>jTsai@ManElec.com</td>
                                 <td>6-1-2015</td>
+                                <td><a class="btn-xs btn-danger" href="#"><span class="fui-cross-circle"></span> Remove</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>jayZee@ManElec.com</td>
+                                <td>7-1-2015</td>
                                 <td><a class="btn-xs btn-danger" href="#"><span class="fui-cross-circle"></span> Remove</a></td>
                             </tr>
                             <%} else if (listType.equals("Filter")) {%>
@@ -265,7 +275,7 @@
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal -->
                 </div>
-
+            </div>
             </div>
             <% }
             %>

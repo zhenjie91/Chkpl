@@ -25,20 +25,28 @@
         <%@include file="webComponents/navBarEng.jsp" %>
 
         <div class="container">
+
             <div class="row">
-                <%
-                    if (successmsg != null) {
-                %>
-                <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                        &times;
-                    </button>
-                    <a href="#" class="alert-link">Success! Well done its submitted.</a>
+                <div class="col-sm-12">
+                    <h4>Home</h4>
                 </div>
-                <%            }
-                %>
-                <center>
-                    <div class="col-xs-3">
+            </div>
+            <%
+                if (successmsg != null) {
+            %>
+
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    &times;
+                </button>
+                <a href="#" class="alert-link"> <%=successmsg %> </a>
+            </div>
+
+            <%            }
+            %>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-3">
                         <div class="tile">
                             <img src="img/icons/svg/clipboard.svg" alt="Infinity-Loop" class="tile-image">
                             <h3 class="tile-title">Keep Track of My Lists</h3>
@@ -46,7 +54,7 @@
                             <a class="btn btn-primary btn-large btn-block" href="mylistEng.jsp">View All Lists</a>
                         </div>
                     </div>
-                </center>
+                </div>
             </div> <!-- /tiles -->
         </div>
 

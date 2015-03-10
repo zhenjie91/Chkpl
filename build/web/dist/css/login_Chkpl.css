@@ -1,0 +1,31 @@
+/* 
+    Document   : login_Chkpl
+    Created on : Mar 10, 2015, 11:29:42 AM
+    Author     : Zhen Jie
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body.login {
+    position: relative;
+}
+
+.middle-container {
+    overflow: visible;
+    display: table;
+    position: static;
+}
+
+.middle-row {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    position: static;
+}
+.middle-wrapper {
+    position: static;
+}
+
+.login-container-header {
+    padding: 30px 0 40px 0;
+}

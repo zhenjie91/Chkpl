@@ -23,57 +23,62 @@
         <script type="text/javascript" src="/DataTables-1.10.5/media/js/jquery.dataTables.js"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MyList</title>
+        <title>ViewList</title>
     </head>
     <body style="padding-top: 70px;">
         <!-- Engineer's Nav Bar -->
         <%@include file="webComponents/navBarEng.jsp" %>
         <div class="container">
             <div class="row">
-                <br>
-                <p>
-                    This list here shows all the checklists that have been made available to you. Click on details to view the task details and click on start to begin your checklist.
-                </p>
-                <hr>
+                <div class="col-sm-12">
+                    <h4>ViewList</h4>
+                    <br>
+                    <p>
+                        This list here shows all the checklists that have been made available to you. Click on details to view the task details and click on start to begin your checklist.
+                    </p>
+                    <hr>
+                </div>
             </div>
-            <div class="table-responsive">
-                <table id="MList" class="table-striped" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>S/N</th>
-                            <th>List Name</th>
-                            <th>Date Created</th>
-                            <th>Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>And This Is Crazy</td>
-                                                <td>22-2-2015</td>
-                            <td>
-                                <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
-                                <a class="btn-xs btn-primary" href=<%="dolist.jsp?ListTitle=" + "And%20This%20Is%20Crazy"%> ><span class="fui-new"></span> Start</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>So</td>
-                            <td>22-1-2015</td>
-                            <td> 
-                                <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
-                                <a class="btn-xs btn-primary" href="#"><span class="fui-new"></span> Start</a>
-                            </td> 
-                        </tr>
-                    </tbody>
-                </table>
-                <script>
-                    $(document).ready(function() {
-                        $('#MList').DataTable();
-                    });
-                </script>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="table-responsive">
+                        <table id="MList" class="table-striped" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>S/N</th>
+                                    <th>List Name</th>
+                                    <th>Date Created</th>
+                                    <th>Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Compressor Checks</td>
+                                    <td>22-2-2015</td>
+                                    <td>
+                                        <a class="btn-xs btn-primary" href=<%="dolist.jsp?ListTitle=" + "Compressor%20Checks"%> ><span class="fui-new"></span> Start</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Refrigerant Checks</td>
+                                    <td>22-1-2015</td>
+                                    <td> 
+                                        <a class="btn-xs btn-primary" href="#"><span class="fui-new"></span> Start</a>
+                                    </td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                        <script>
+                            $(document).ready(function() {
+                                $('#MList').DataTable();
+                            });
+                        </script>
+                    </div>
+                </div> 
             </div>
-        </div> 
+        </div>
     </body>
 </html>
 

@@ -2,6 +2,9 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@include file="protect/mgrProtect.jsp" %>
 <%
+    String successmsg = request.getParameter("successmsg");
+%>
+<%
     String listTitle = request.getParameter("ListTitle");
     String listType = request.getParameter("ListType");
     String listAdded = "";
@@ -22,6 +25,19 @@
     if (newEquip != null) {
         equip = newEquip.toString();
     }
+    //List Details
+    String[] task1 = null;
+    String[] task2 = null;
+    String[] task3 = null;
+    String[] task4 = null;
+    String[] task5 = null;
+
+    // Retrieve session attributes if any
+    String[] t1 = (String[]) session.getAttribute("task1");
+    String[] t2 = (String[]) session.getAttribute("task2");
+    String[] t3 = (String[]) session.getAttribute("task3");
+    String[] t4 = (String[]) session.getAttribute("task4");
+    String[] t5 = (String[]) session.getAttribute("task5");
 
 %>
 <!DOCTYPE html>
@@ -48,7 +64,7 @@
         <script type="text/javascript" src="/DataTables-1.10.5/media/js/jquery.dataTables.js"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MyList</title>
+        <title>ViewList</title>
     </head>
     <body style="padding-top: 70px;">
         <!-- Manager's Nav Bar -->
@@ -56,458 +72,484 @@
         <div class="container">
             <!-- Guidance and Instructions -->
             <div class="row">
-                <h4>Find, manage and version-control all of your lists here </h4>
+                <%
+                    if (successmsg != null) {
+                %>
 
-                <p>
-                    You may browse the lists that you have created for your equipments here. The version controls are also indicated by the switches beside the list.<br>
-                    Using the controls, you may also view, edit and delete lists. Note that editing saves a new version of the list. 
-                </p>
+                <div class="alert alert-success alert-dismissable">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                        &times;
+                    </button>
+                    <a href="#" class="alert-link"> <%=successmsg%> </a>
+                </div>
+
+                <%            }
+                %>
+                <div class="col-sm-12">
+                    <h4>Find, manage and version-control all of your lists here </h4>
+
+                    <p>
+                        You may browse the lists that you have created for your equipments here. The version controls are also indicated by the switches beside the list.<br>
+                        Using the controls, you may also view, edit and delete lists. Note that editing saves a new version of the list. 
+                    </p>
+                </div>
             </div>
             <div class="row">
+                <div class="col-sm-12">
+                    <div role="tabpanel">
 
-                <div role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tabs-left">
+                            <li role="presentation" class="active"><a href="#mother" aria-controls="mother" role="tab" data-toggle="tab">Motherboard</a></li>
+                            <li role="presentation"><a href="#cool" aria-controls="cool" role="tab" data-toggle="tab">Compressor</a></li>
+                            <li role="presentation"><a href="#filter" aria-controls="filter" role="tab" data-toggle="tab">Filter</a></li>
+                            <li role="presentation"><a href="#fan" aria-controls="fan" role="tab" data-toggle="tab">Fan</a></li>
+                                <%
+                                    if (equip != null) {
+                                %>
+                            <li role="presentation"><a href="#newEQ" aria-controls="newEQ" role="tab" data-toggle="tab"><%=equip%></a></li> 
+                                <%
+                                    }
+                                %>
+                        </ul>
 
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs tabs-left">
-                        <li role="presentation" class="active"><a href="#mother" aria-controls="mother" role="tab" data-toggle="tab">Motherboard</a></li>
-                        <li role="presentation"><a href="#cool" aria-controls="cool" role="tab" data-toggle="tab">Cooling Unit</a></li>
-                        <li role="presentation"><a href="#filter" aria-controls="filter" role="tab" data-toggle="tab">Filter</a></li>
-                        <li role="presentation"><a href="#fan" aria-controls="fan" role="tab" data-toggle="tab">Fan</a></li>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="mother">
+                                <!-- Guidance and Instructions -->
+                                <div class="container">
+                                    <div class="row">
+                                        <br>
+                                        <p>
+                                            This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="MList" class="table-striped" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>S/N</th>
+                                                    <th>List Name</th>
+                                                    <th>Date Created</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Indoor Unit</td>
+                                                    <td>21-01-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" checked data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Outdoor Unit</td>
+                                                    <td>22-02-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" checked data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%
+                                                    if (cfmAdded != null && listDetails[1].equals("Motherboard")) {
+                                                %>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td><%=listDetails[0]%></td>
+                                                    <td><%=today%></td>
+                                                    <td>
+                                                        <input type="checkbox" data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="" data-toggle="modal" data-target="#detailsModal"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%}
+                                                %>
+                                            </tbody>
+                                        </table>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('#MList').DataTable();
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="cool">
+                                <!-- Guidance and Instructions -->
+                                <div class="container">
+                                    <div class="row">
+                                        <br>
+                                        <p>
+                                            This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="CList" class="table-striped" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>S/N</th>
+                                                    <th>List Name</th>
+                                                    <th>Date Created</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Indoor Units with In-built Compressor </td>
+                                                    <td>21-01-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" checked data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%
+                                                    if (cfmAdded != null && listDetails[1].equals("Compressor")) {
+                                                %>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td><%=listDetails[0]%></td>
+                                                    <td><%=today%></td>
+                                                    <td>
+                                                        <input type="checkbox" data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="" data-toggle="modal" data-target="#detailsModal"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%}
+                                                %>
+                                            </tbody>
+                                        </table>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('#CList').DataTable();
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="filter">
+                                <!-- Guidance and Instructions -->
+                                <div class="container">
+                                    <div class="row">
+                                        <br>
+                                        <p>
+                                            This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="FIList" class="table-striped" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>S/N</th>
+                                                    <th>List Name</th>
+                                                    <th>Date Created</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Filter Checks</td>
+                                                    <td>21-01-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" checked data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+
+                                                <%
+                                                    if (cfmAdded != null && listDetails[1].equals("Filter")) {
+                                                %>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td><%=listDetails[0]%></td>
+                                                    <td><%=today%></td>
+                                                    <td>
+                                                        <input type="checkbox" data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="" data-toggle="modal" data-target="#detailsModal"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%}
+                                                %>
+                                            </tbody>
+                                        </table>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('#FIList').DataTable();
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="fan">
+                                <div class="container">
+                                    <div class="row">
+                                        <br>
+                                        <p>
+                                            This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="FList" class="table-striped" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>S/N</th>
+                                                    <th>List Name</th>
+                                                    <th>Date Created</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Cooling/Evaporator Coils</td>
+                                                    <td>21-1-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" checked data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Condenser Fan</td>
+                                                    <td>21-1-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Blower checks</td>
+                                                    <td>22-1-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" checked data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>Condenser Fan</td>
+                                                    <td>2-3-2015</td>
+                                                    <td>
+                                                        <input type="checkbox" checked data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%
+                                                    if (cfmAdded != null && listDetails[1].equals("Fan")) {
+                                                %>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td><%=listDetails[0]%></td>
+                                                    <td><%=today%></td>
+                                                    <td>
+                                                        <input type="checkbox" data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="" data-toggle="modal" data-target="#detailsModal"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%}
+                                                %>
+                                            </tbody>
+                                        </table>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('#FList').DataTable();
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
                             <%
                                 if (equip != null) {
                             %>
-                        <li role="presentation"><a href="#newEQ" aria-controls="newEQ" role="tab" data-toggle="tab"><%=equip%></a></li> 
-                            <%
-                                }
+                            <div role="tabpanel" class="tab-pane" id="newEQ"> 
+                                <div class="container">
+                                    <div class="row">
+                                        <br>
+                                        <p>
+                                            This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
+                                        </p>
+                                        <hr>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="NewList" class="table-striped" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>S/N</th>
+                                                    <th>List Name</th>
+                                                    <th>Date Created</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <%
+                                                    if (equip != null && cfmAdded != null && listDetails[1].equals(equip)) {
+                                                %>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td><%=listDetails[0]%></td>
+                                                    <td><%=today%></td>
+                                                    <td>
+                                                        <input type="checkbox" data-toggle="switch" />
+                                                        <a class="btn-xs btn-info" href="" data-toggle="modal" data-target="#detailsModal"><span class="fui-info-circle"></span> Details</a>
+                                                    </td>
+                                                </tr>
+                                                <%
+                                                } else {
+                                                %>
+                                                <tr>
+                                                    <td colspan="4">
+                                                        No records yet
+                                                    </td>
+                                                </tr>
+                                                <%}
+                                                %>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <%                    }
                             %>
-                    </ul>
+                        </div>
 
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="mother">
-                            <!-- Guidance and Instructions -->
-                            <div class="container">
-                                <div class="row">
-                                    <br>
-                                    <p>
-                                        This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
-                                    </p>
-                                    <hr>
-                                </div>
-                                <div class="table-responsive">
-                                    <table id="MList" class="table-striped" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>S/N</th>
-                                                <th>List Name</th>
-                                                <th>Date Created</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Hey I Just Met You</td>
-                                                <td>21-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>And This Is Crazy</td>
-                                                <td>22-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" checked data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>But</td>
-                                                <td>01-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Heres My Number</td>
-                                                <td>12-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>So</td>
-                                                <td>22-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" checked data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Call Me Maybe</td>
-                                                <td>02-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%
-                                                if (cfmAdded != null && listDetails[1].equals("Motherboard")) {
-                                            %>
-                                            <tr>
-                                                <td>7</td>
-                                                <td><%=listDetails[0]%></td>
-                                                <td><%=today%></td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%}
-                                            %>
-                                        </tbody>
-                                    </table>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#MList').DataTable();
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="cool">
-                            <!-- Guidance and Instructions -->
-                            <div class="container">
-                                <div class="row">
-                                    <br>
-                                    <p>
-                                        This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
-                                    </p>
-                                    <hr>
-                                </div>
-                                <div class="table-responsive">
-                                    <table id="CList" class="table-striped" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>S/N</th>
-                                                <th>List Name</th>
-                                                <th>Date Created</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>All you people can't you see, can't you see </td>
-                                                <td>21-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>How your love's affecting our reality</td>
-                                                <td>22-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Every time we're down</td>
-                                                <td>01-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>You can make it right</td>
-                                                <td>12-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>And</td>
-                                                <td>22-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" checked data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>That makes you larger than life</td>
-                                                <td>2-1-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%
-                                                if (cfmAdded != null && listDetails[1].equals("Cooling Unit")) {
-                                            %>
-                                            <tr>
-                                                <td>7</td>
-                                                <td><%=listDetails[0]%></td>
-                                                <td><%=today%></td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%}
-                                            %>
-                                        </tbody>
-                                    </table>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#CList').DataTable();
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="filter">
-                            <!-- Guidance and Instructions -->
-                            <div class="container">
-                                <div class="row">
-                                    <br>
-                                    <p>
-                                        This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
-                                    </p>
-                                    <hr>
-                                </div>
-                                <div class="table-responsive">
-                                    <table id="FIList" class="table-striped" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>S/N</th>
-                                                <th>List Name</th>
-                                                <th>Date Created</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>And darling I will be loving you til we are 70</td>
-                                                <td>21-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>And baby my heart could still fall as hard at 23</td>
-                                                <td>22-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>And Im thinking bout how people fall in love in mysterious ways</td>
-                                                <td>01-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Maybe just the touch of a hand</td>
-                                                <td>12-02-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Well me I fall in love with you every single day</td>
-                                                <td>22-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" checked data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>And I just wanna tell you I am</td>
-                                                <td>2-01-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%
-                                                if (cfmAdded != null && listDetails[1].equals("Filter")) {
-                                            %>
-                                            <tr>
-                                                <td>7</td>
-                                                <td><%=listDetails[0]%></td>
-                                                <td><%=today%></td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%}
-                                            %>
-                                        </tbody>
-                                    </table>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#FIList').DataTable();
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="fan">
-                            <div class="container">
-                                <div class="row">
-                                    <br>
-                                    <p>
-                                        This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
-                                    </p>
-                                    <hr>
-                                </div>
-                                <div class="table-responsive">
-                                    <table id="FList" class="table-striped" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>S/N</th>
-                                                <th>List Name</th>
-                                                <th>Date Created</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Rose garden filled with thorns</td>
-                                                <td>21-1-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Keep you second guessing like</td>
-                                                <td>22-2-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Oh my God who is she</td>
-                                                <td>1-2-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>I get drunk on jealousy</td>
-                                                <td>12-2-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>But you will come back each time you leave</td>
-                                                <td>22-1-2015</td>
-                                                <td>
-                                                    <input type="checkbox" checked data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>Cause darling Im a nightmare dressed like a daydream</td>
-                                                <td>2-1-2015</td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%
-                                                if (cfmAdded != null && listDetails[1].equals("Fan")) {
-                                            %>
-                                            <tr>
-                                                <td>7</td>
-                                                <td><%=listDetails[0]%></td>
-                                                <td><%=today%></td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%}
-                                            %>
-                                        </tbody>
-                                    </table>
-                                    <script>
-                                        $(document).ready(function() {
-                                            $('#FList').DataTable();
-                                        });
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                        <%
-                            if (equip != null) {
-                        %>
-                        <div role="tabpanel" class="tab-pane" id="newEQ"> 
-                            <div class="container">
-                                <div class="row">
-                                    <br>
-                                    <p>
-                                        This is the listing for all the lists you have created. By turning on the switch, this list becomes active and is visible to your engineers. 
-                                    </p>
-                                    <hr>
-                                </div>
-                                <div class="table-responsive">
-                                    <table id="NewList" class="table-striped" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>S/N</th>
-                                                <th>List Name</th>
-                                                <th>Date Created</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <%
-                                                if (equip != null && cfmAdded != null && listDetails[1].equals(equip)) {
-                                            %>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><%=listDetails[0]%></td>
-                                                <td><%=today%></td>
-                                                <td>
-                                                    <input type="checkbox" data-toggle="switch" />
-                                                </td>
-                                            </tr>
-                                            <%
-                                            } else {
-                                            %>
-                                            <tr>
-                                                <td colspan="4">
-                                                    No records yet
-                                                </td>
-                                            </tr>
-                                            <%}
-                                            %>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-                            </div>
-                        </div>
-                        <%                    }
-                        %>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" 
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" 
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            <%=listDetails[0]%>
+                        </h4>
                     </div>
 
-                </div>
-
-            </div> 
-        </div> 
+                    <form name="createEquip_form" method="post" action="manageAdmin.jsp">
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    
+                                        <table>
+                                            <%
+                                                if (t1 != null) {
+                                            %>
+                                            <tr>
+                                                <th class="pull-left"><%=t1[0]%></th>
+                                                    <%
+                                                        if (t1[1] != null) {
+                                                    %>
+                                            </tr>
+                                            <tr>
+                                                <td><ul><li><%=t1[1]%></li></ul></td>
+                                            </tr>
+                                            <tr>
+                                                <%}
+                                                %>
+                                            </tr>
+                                            <% }
+                                            %>
+                                            <%
+                                                if (t2 != null) {
+                                            %>
+                                            <tr>
+                                                <th class="pull-left"><%=t2[0]%></th>
+                                                    <%
+                                                        if (t2[1] != null) {
+                                                    %>
+                                                </tr>
+                                            <tr>
+                                                <td><ul><li><%=t2[1]%></li></ul></td>
+                                            </tr>
+                                            <tr>
+                                                <%}
+                                                %>
+                                            </tr>
+                                            <% }
+                                            %>
+                                            <%
+                                                if (t3 != null) {
+                                            %>
+                                            <tr>
+                                                <th class="pull-left"><%=t3[0]%></th>
+                                                    <%
+                                                        if (t3[1] != null) {
+                                                    %>
+                                                </tr>
+                                            <tr>
+                                                <td><ul><li><%=t3[1]%></li></ul></td>
+                                            </tr>
+                                            <tr>
+                                                <%}
+                                                %>
+                                            </tr>
+                                            <% }
+                                            %>
+                                            <%
+                                                if (t4 != null) {
+                                            %>
+                                            <tr>
+                                                <th class="pull-left"><%=t4[0]%></th>
+                                                    <%
+                                                        if (t4[1] != null) {
+                                                    %>
+                                                </tr>
+                                            <tr>
+                                                <td><ul><li><%=t4[1]%></li></ul></td>
+                                            </tr>
+                                            <tr>
+                                                <%}
+                                                %>
+                                            </tr>
+                                            <% }
+                                            %>
+                                            <%
+                                                if (t5 != null) {
+                                            %>
+                                            <tr>
+                                                <th class="pull-left"><%=t5[0]%></th>
+                                                    <%
+                                                        if (t5[1] != null) {
+                                                    %>
+                                                </tr>
+                                            <tr>
+                                                <td><ul><li><%=t5[1]%></li></ul></td>
+                                            </tr>
+                                            <tr>
+                                                <%}
+                                                %>
+                                            </tr>
+                                            <% }
+                                            %>
+                                        </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" 
+                                    data-dismiss="modal">Close
+                            </button>
+                            <input class="btn btn-primary" type="submit" value="Submit"/>
+                        </div>
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
     </body>
 </html>

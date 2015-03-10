@@ -28,7 +28,7 @@
             </div>
                 <div class="modal-body">
                     <p>
-                        Units of measurement is in kW
+                        Units of measurement is in &#176;C
                     </p>
                 </div>
                 <div class="modal-footer">

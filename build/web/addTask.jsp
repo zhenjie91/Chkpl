@@ -26,8 +26,10 @@
         <%@include file="webComponents/navBarMgr.jsp" %>
 
         <div class="container">
+            <div class="col-sm-12">
             <!-- Guidance and Instructions -->
             <div class="row">
+                
                 <h4>Step 2: Add Tasks to Checklist </h4>
                 <p>
                     You have successfully created the Title and chosen the equipment type. In this step, you will be creating the tasks for the Checklist. Each Task has a Title to it, and details that are optional, you may also choose to add an illustration to aid in your tasks checking.<br>
@@ -210,9 +212,10 @@
                 <p>
                     Do check if you have anymore changes to make before you create the checklist.
                 </p>
-                <a class="btn btn-warning" href="mylist.jsp?listAdded=done"><span class="fui-check-circle"></span> Create Checklist!</a>
+                <a class="btn btn-warning" href="mylist.jsp?listAdded=done&successmsg=Your%20list%20has%20been%20created!"><span class="fui-check-circle"></span> Create Checklist!</a>
                 <%}
                             %>
+            </div>
             </div>
         </div>
         <script>

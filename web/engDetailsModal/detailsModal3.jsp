@@ -28,7 +28,10 @@
             </div>
                 <div class="modal-body">
                     <p>
-                        
+                    <ul>
+                        <li>Push unit to maximum voltage before overheating</li>
+                        <li>Monitor temperature increase as you increase the voltage</li>
+                    </ul>
                     </p>
                 </div>
                 <div class="modal-footer">

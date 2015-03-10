@@ -27,7 +27,12 @@
                 </h4>
             </div>
                 <div class="modal-body">
-                    Units of measurements is in H/M/L dB&#186;A.
+                    <p>
+                    <ul>
+                        <li>Test voltage readings for pins pairings: 1-2, 1-3, 2-3</li>
+                        <li>Pass task if all pairs have current passing through</li>
+                    </ul>
+                    </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-right" 
