@@ -4,6 +4,7 @@
     <head>
         <!-- Loading Bootstrap -->
         <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+        <link href="dist/css/vendor/bootstrap-responsive.css" rel="stylesheet">
         <!-- Loading Flat UI -->
         <link href="dist/css/flat-ui.css" rel="stylesheet">
         <!-- Loading Favicon -->
@@ -25,10 +26,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ViewList</title>
     </head>
-    <body style="padding-top: 70px;">
+    <body>
         <!-- Engineer's Nav Bar -->
         <%@include file="webComponents/navBarEng.jsp" %>
-        <div class="container">
+        <div class="container" style="padding-top: 70px;">
             <div class="row">
                 <div class="col-sm-12">
                     <h4>ViewList</h4>

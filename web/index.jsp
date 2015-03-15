@@ -18,43 +18,40 @@
         <script src="docs/assets/js/application.js"></script>
         <title>CheckPal</title>
     </head>
-    <body style="background-color: #1abc9c; text-align: center" class="login">
-        <div class="middle-container">
-            <div class="middle-row">
-                <div class="middle-wrapper">
-                    <div class='login-container-header'>
-                        <div class='container'>
-                            <div class='row'>
-                                <div class='col-sm-12'>
-                                    <div class='text-center'>
-                                        <img src="img/login/checkpal.png" alt="Welcome to CheckPal" height="150" width="150"/>
-                                        <h4>Welcome to <small>CheckPal</small></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class='container'>
-                        <div class='row'>
-                            <div class='col-sm-8 col-sm-offset-2'>
-                                <form class="login-form" name="login_form" method="post" action="authenticate.jsp">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control login-field" value="" placeholder="Enter your username" name="username" />
-                                        <label class="login-field-icon fui-user" for="login-name"></label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control login-field" value="" placeholder="Password" name="password" />
-                                        <label class="login-field-icon fui-lock" for="login-pass"></label>
-                                    </div>
-                                    <input class="btn btn-primary btn-lg btn-block" type="submit" value="Log In">
-                                    <a class="login-link" href="#">Lost your password?</a>
-                                    <b style="color:red;"><%=errorMsg%></b>
-                                </form>
-                            </div>
-                        </div>
+    <body style="background-color: #1abc9c;">
+
+
+        <div class='container'>
+            <div class='row'>
+                
+                <div class='col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4'>
+                    <div class='text-center'>
+                        <img src="img/login/checkpal.png" alt="Welcome to CheckPal" height="150" width="150"/>
+                        <h4>Welcome to <small>CheckPal</small></h4>
                     </div>
                 </div>
             </div>
+
+
+
+            <div class='row'>
+                <div class='col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2'>
+                    <form class="login-form" name="login_form" method="post" action="authenticate.jsp">
+                        <div class="form-group">
+                            <input type="text" class="form-control login-field" value="" placeholder="Enter your username" name="username" />
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control login-field" value="" placeholder="Password" name="password" />
+                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                        </div>
+                        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Log In">
+                        <a class="login-link" href="#">Lost your password?</a>
+                        <b style="color:red;"><%=errorMsg%></b>
+                    </form>
+                </div>
+            </div>
         </div>
+
     </body>
 </html>

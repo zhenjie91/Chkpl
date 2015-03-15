@@ -45,6 +45,7 @@
     <head>
         <!-- Loading Bootstrap -->
         <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+        <link href="dist/css/vendor/bootstrap-responsive.css" rel="stylesheet">
         <!-- Loading Flat UI -->
         <link href="dist/css/flat-ui.css" rel="stylesheet">
         <!-- Loading Favicon -->
@@ -66,10 +67,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ViewList</title>
     </head>
-    <body style="padding-top: 70px;">
+    <body>
         <!-- Manager's Nav Bar -->
         <%@include file="webComponents/navBarMgr.jsp" %>
-        <div class="container">
+        <div class="container" style="padding-top: 70px;">
             <!-- Guidance and Instructions -->
             <div class="row">
                 <%
@@ -440,11 +441,11 @@
                         </h4>
                     </div>
 
-                    <form name="createEquip_form" method="post" action="manageAdmin.jsp">
+                    
                         <div class="modal-body">
                             <div class="container">
                                 <div class="row">
-                                    
+                                    <div class="col-md-12">
                                         <table>
                                             <%
                                                 if (t1 != null) {
@@ -537,7 +538,7 @@
                                             <% }
                                             %>
                                         </table>
-                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -545,9 +546,8 @@
                             <button type="button" class="btn btn-default" 
                                     data-dismiss="modal">Close
                             </button>
-                            <input class="btn btn-primary" type="submit" value="Submit"/>
                         </div>
-                    </form>
+                    
                 </div><!-- /.modal-content -->
             </div><!-- /.modal -->
         </div>

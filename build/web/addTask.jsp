@@ -8,6 +8,7 @@
     <head>
         <!-- Loading Bootstrap -->
         <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+        <link href="dist/css/vendor/bootstrap-responsive.css" rel="stylesheet">
         <link href="dist/css/vendor/tabs.css" rel="stylesheet">
         <!-- Loading Flat UI -->
         <link href="dist/css/flat-ui.css" rel="stylesheet">
@@ -21,11 +22,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Create</title>
     </head>
-    <body style="padding-top: 70px;">
+    <body>
         <!-- Manager's Nav Bar -->
         <%@include file="webComponents/navBarMgr.jsp" %>
 
-        <div class="container">
+        <div class="container" style="padding-top: 70px;">
             <div class="col-sm-12">
             <!-- Guidance and Instructions -->
             <div class="row">

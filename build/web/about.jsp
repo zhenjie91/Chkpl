@@ -17,7 +17,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>About</title>
     </head>
-    <body style="padding-top: 70px;">
+    <body>
         <!-- Common Nav Bar -->
         <div class="row">
             <div class="col-xs-12">
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container" style="padding-top: 70px;">
             <div class="row">
                 <div class='col-xs-12'>
                     <h3>About CheckPal</h3>

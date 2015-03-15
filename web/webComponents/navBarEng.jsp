@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-xs-12">
+    
         <nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -32,5 +32,5 @@
             <!-- /.navbar-collapse -->
         </nav>
         <!-- /navbar -->
-    </div>
+    
 </div>

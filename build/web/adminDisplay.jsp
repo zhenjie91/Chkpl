@@ -8,6 +8,7 @@
     <head>
         <!-- Loading Bootstrap -->
         <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+        <link href="dist/css/vendor/bootstrap-responsive.css" rel="stylesheet">
         <!-- Loading Flat UI -->
         <link href="dist/css/flat-ui.css" rel="stylesheet">
         <!-- Loading Favicon -->
@@ -20,11 +21,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
     </head>
-    <body style="padding-top: 70px;">
+    <body>
         <!-- Manager's Nav Bar -->
         <%@include file="webComponents/navBarMgr.jsp" %>
 
-        <div class="container">
+        <div class="container" style="padding-top: 70px;">
 
             <div class="row">
                 <div class="col-sm-12">
@@ -39,15 +40,15 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                     &times;
                 </button>
-                <a href="#" class="alert-link"> <%=successmsg %> </a>
+                <a href="#" class="alert-link"> <%=successmsg%> </a>
             </div>
 
             <%            }
             %>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-                    <div class="col-sm-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="tile">
                             <img src="img/icons/svg/pencils.svg" alt="Compas" class="tile-image big-illustration">
                             <h3 class="tile-title">Customized Aids</h3>
@@ -56,7 +57,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="tile">
                             <img src="img/icons/svg/clipboard.svg" alt="Infinity-Loop" class="tile-image">
                             <h3 class="tile-title">Keep Track of My Lists</h3>
@@ -65,7 +66,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="tile">
                             <img src="img/icons/svg/retina.svg" alt="Pensils" class="tile-image">
                             <h3 class="tile-title">View Lists by Equipment</h3>
@@ -74,7 +75,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
                         <div class="tile">
                             <img src="img/icons/svg/book.svg" alt="Chat" class="tile-image">
                             <h3 class="tile-title">Administration</h3>
@@ -87,8 +88,8 @@
                 </div> <!-- /tiles -->
 
             </div>
-
         </div>
+
 
     </body>
 </html>
