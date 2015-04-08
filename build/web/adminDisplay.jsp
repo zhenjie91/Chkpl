@@ -88,6 +88,19 @@
                 </div> <!-- /tiles -->
 
             </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+                        <div class="tile">
+                            <img src="img/icons/svg/compas.svg" alt="Compas" class="tile-image big-illustration">
+                            <h3 class="tile-title">Tutorials</h3>
+                            <p>Follow our guides tailored to your needs</p>
+                            <a class="btn btn-primary btn-large btn-block" href="tutorial.jsp">View Tutorials</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 

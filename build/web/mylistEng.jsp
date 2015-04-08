@@ -55,19 +55,11 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Compressor Checks</td>
-                                    <td>22-2-2015</td>
+                                    <td>Compressor (G2T1-R0X) - Modular</td>
+                                    <td>03-04-2015</td>
                                     <td>
-                                        <a class="btn-xs btn-primary" href=<%="dolist.jsp?ListTitle=" + "Compressor%20Checks"%> ><span class="fui-new"></span> Start</a>
+                                        <a class="btn-xs btn-primary" href=<%="dolist.jsp?ListTitle=" + "Compressor%20G2T1%20R0X"%> ><span class="fui-new"></span> Start</a>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Refrigerant Checks</td>
-                                    <td>22-1-2015</td>
-                                    <td> 
-                                        <a class="btn-xs btn-primary" href="#"><span class="fui-new"></span> Start</a>
-                                    </td> 
                                 </tr>
                             </tbody>
                         </table>

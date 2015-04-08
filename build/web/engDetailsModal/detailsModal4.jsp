@@ -3,13 +3,13 @@
         document.getElementById("fail4").innerHTML = "Edit to Fail";
         document.getElementById("pass4").disabled = true;
         document.getElementById("fail4").disabled = false;
-        document.getElementById("tk4").style.background = "#1abc9c";
+        document.getElementById("done4").style.display = "block";
     }
     function tokenMinus4() {
         document.getElementById("pass4").innerHTML = "Edit to Pass";
         document.getElementById("fail4").disabled = true;
         document.getElementById("pass4").disabled = false;
-        document.getElementById("tk4").style.background = "#e74c3c";
+        document.getElementById("done4").style.display = "block";
     }
 </script>
 <!-- Modal -->

@@ -3,13 +3,13 @@
         document.getElementById("fail1").innerHTML = "Edit to Fail";
         document.getElementById("pass1").disabled = true;
         document.getElementById("fail1").disabled = false;
-        document.getElementById("tk1").style.background = "#1abc9c";
+        document.getElementById("done1").style.display = "block";
     }
     function tokenMinus1() {
         document.getElementById("pass1").innerHTML = "Edit to Pass";
         document.getElementById("fail1").disabled = true;
         document.getElementById("pass1").disabled = false;
-        document.getElementById("tk1").style.background = "#e74c3c";
+        document.getElementById("done1").style.display = "block";
     }
 </script>
 <!-- Modal -->
@@ -28,12 +28,12 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <ul>
-                        <li>Units of measurements is in m³/min</li>
-                        <li>Run twice and take the average</li>
-                        <li>Range of readings from H/M/L </li>
-                        <li>If 'L', fail the task</li>
-                    </ul>
+                <ul>
+                    <li>Units of measurements is in m³/min</li>
+                    <li>Run twice and take the average</li>
+                    <li>Range of readings from H/M/L </li>
+                    <li>If 'L', fail the task</li>
+                </ul>
                 </p> 
             </div>
             <div class="modal-footer">

@@ -7,6 +7,7 @@
     if (newEquip != null) {
         equip = newEquip.toString();
     }
+    
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +56,7 @@
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs tabs-left">
                             <li role="presentation" class="active"><a href="#mother" aria-controls="mother" role="tab" data-toggle="tab">Motherboard</a></li>
-                            <li role="presentation"><a href="#compressor" aria-controls="compressor" role="tab" data-toggle="tab">Cooling Unit</a></li>
+                            <li role="presentation"><a href="#compressor" aria-controls="compressor" role="tab" data-toggle="tab">Compressor</a></li>
                             <li role="presentation"><a href="#filter" aria-controls="filter" role="tab" data-toggle="tab">Filter</a></li>
                             <li role="presentation"><a href="#fan" aria-controls="fan" role="tab" data-toggle="tab">Fan</a></li>
                                 <%
@@ -192,7 +193,7 @@
                                                     <td>Joleen Tsai</td>
                                                     <td>22-2-2015</td>
                                                     <td>
-                                                        <a class="btn-xs btn-primary" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                        <a class="btn-xs btn-primary" href="engineersubmission.jsp?issn=123&#45;456&#45;789&date=25&#45;2&#45;2015&engineer=Joleen%20Tsai"><span class="fui-info-circle"></span> Details</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -202,7 +203,7 @@
                                                     <td>Jain Chou</td>
                                                     <td>22-2-2015</td>
                                                     <td>
-                                                        <a class="btn-xs btn-primary" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                        <a class="btn-xs btn-primary" href="engineersubmission.jsp?issn=567&#45;890&#45;123&date=25&#45;2&#45;2015&engineer=Jain%20Chou"><span class="fui-info-circle"></span> Details</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -212,17 +213,17 @@
                                                     <td>Jain Chou</td>
                                                     <td>22-2-2015</td>
                                                     <td>
-                                                        <a class="btn-xs btn-primary" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                        <a class="btn-xs btn-primary" href="engineersubmission.jsp?issn=789&#45;012&#45;345&date=25&#45;2&#45;2015&engineer=Jain%20Chou"><span class="fui-info-circle"></span> Details</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>4</td>
                                                     <td>234-567-890</td>
-                                                    <td><label class="btn-success btn-xs">Pass</label></td>
+                                                    <td><label class="btn-danger btn-xs">Fail</label></td>
                                                     <td>Joleen Tsai</td>
                                                     <td>25-2-2015</td>
                                                     <td>
-                                                        <a class="btn-xs btn-primary" href="#"><span class="fui-info-circle"></span> Details</a>
+                                                        <a class="btn-xs btn-primary" href="engineersubmission.jsp?issn=234&#45;567&#45;890&date=25&#45;2&#45;2015&engineer=Joleen%20Tsai&fail=5&reason=Cooling%20Conditions%20was%20not%20low%20enough&#44;%20reaching%20a%20level%20of%20&#45;5%20degrees%20only&#46;"><span class="fui-info-circle"></span> Details</a>
                                                     </td>
                                                 </tr>
                                             </tbody>

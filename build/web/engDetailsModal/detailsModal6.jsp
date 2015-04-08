@@ -3,13 +3,13 @@
         document.getElementById("fail6").innerHTML = "Edit to Fail";
         document.getElementById("pass6").disabled = true;
         document.getElementById("fail6").disabled = false;
-        document.getElementById("tk6").style.background = "#1abc9c";
+        document.getElementById("done6").style.display = "block";
     }
     function tokenMinus6() {
         document.getElementById("pass6").innerHTML = "Edit to Pass";
         document.getElementById("fail6").disabled = true;
         document.getElementById("pass6").disabled = false;
-        document.getElementById("tk6").style.background = "#e74c3c";
+        document.getElementById("done6").style.display = "block";
     }
 </script>
 <!-- Modal -->

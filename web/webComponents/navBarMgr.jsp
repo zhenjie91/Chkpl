@@ -23,8 +23,6 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello Mickey! <b class="caret"></b></a>
                             <span class="dropdown-arrow"></span>
                             <ul class="dropdown-menu">
-                                <li><a href="#"><span class="fui-user"></span> Profile</a></li>
-                                <li class="divider"></li>
                                 <li><a href="logout.jsp"><span class="fui-exit"></span> Logout </a></li>
                             </ul>
                         </li>

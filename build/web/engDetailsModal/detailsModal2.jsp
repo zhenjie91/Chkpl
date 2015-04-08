@@ -3,13 +3,13 @@
         document.getElementById("fail2").innerHTML = "Edit to Fail";
         document.getElementById("pass2").disabled = true;
         document.getElementById("fail2").disabled = false;
-        document.getElementById("tk2").style.background = "#1abc9c";
+        document.getElementById("done2").style.display = "block";
     }
     function tokenMinus2() {
         document.getElementById("pass2").innerHTML = "Edit to Pass";
         document.getElementById("fail2").disabled = true;
         document.getElementById("pass2").disabled = false;
-        document.getElementById("tk2").style.background = "#e74c3c";
+        document.getElementById("done2").style.display = "block";
     }
 </script>
 <!-- Modal -->
@@ -33,6 +33,9 @@
                         <li>Pass task if all pairs have current passing through</li>
                     </ul>
                     </p>
+                    <div class="tile">
+                            <img src="img/capacitor.png">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-right" 

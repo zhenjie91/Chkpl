@@ -1,3 +1,4 @@
+<%@page import="dao.DataWriter"%>
 <%
     // initial declarations
     String username = request.getParameter("username");
@@ -6,7 +7,7 @@
     String managerCode = "mgr";
     String managerName = "mickeyMouse";
     String managerPW = "mouse123";
-
+    
     String engineerCode = "eng";
     String engineerName = "jayZee";
     String engineerPW = "jz456";
